@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import controller.Action;
 import controller.ActionForward;
-import member.MemberVO;
 
 public class BoardWriteAction implements Action{
 
@@ -16,7 +15,6 @@ public class BoardWriteAction implements Action{
 		boardDAO dao = new boardDAO();
 		ActionForward forward = new ActionForward();
 		boardVO boardVO = new boardVO();
-		
 		
 		boardVO.setBoardTitle(req.getParameter("boardTitle"));
 		boardVO.setBoardContent(req.getParameter("boardContent"));
@@ -27,17 +25,14 @@ public class BoardWriteAction implements Action{
 		
 		HttpSession session = req.getSession();
 		
-		
-		boardVO.setInstUser((String) session.getAttribute("user_nickname"));
-		boardVO.setUpdtUser((String) session.getAttribute("user_nickname"));
-		System.out.println("경로: "+req.getRequestURL().toString());
-		
+		boardVO.setInstUser( (String) session.getAttribute("user_id") );
+		boardVO.setUpdtUser( (String) session.getAttribute("user_id") );
 		
 		dao.boardInsert(boardVO);
 		
+		forward.setPath("/board/list.bo");
+		forward.setRedirect(false);
 		
-		forward.setPath("list.bo");
-		forward.setRedirect(true);
 		return forward;
 	}
 

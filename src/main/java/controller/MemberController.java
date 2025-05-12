@@ -1,11 +1,16 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import member.MemberLoginAction;
+import member.MemberRegisterAction;
 
 /**
  * Servlet implementation class MemberController
@@ -26,16 +31,51 @@ public class MemberController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doProcess(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		doProcess(request, response);
+	}
+	
+	public void doProcess(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.println(request.getRequestURI());
+		String url = request.getRequestURI();
+		String path = request.getContextPath();
+		String command = url.substring(path.length());
+		System.out.println("command: " + command);
+
+		Action action = null;
+		ActionForward forward = null;
+
+
+		if (command.equals("/login.bo")) {
+			forward = new MemberLoginAction();
+			forward.setPath("member/login.jsp");
+		} else if (command.equals("/register.bo")) {
+			forward = new MemberRegisterAction();
+			forward.setPath("member/register.jsp");
+		}
+
+		try {
+			if (action != null) {
+				forward = action.execute(request, response);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(forward.isRedirect()) {
+			response.sendRedirect(forward.getPath());
+		} else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+			dispatcher.forward(request, response);
+		}
+
 	}
 
 }

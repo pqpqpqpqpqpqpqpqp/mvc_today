@@ -1,5 +1,16 @@
 package member;
 
-public class MemberLoginAction {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import controller.Action;
+import controller.ActionForward;
+
+public class MemberLoginAction implements Action{
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws Exception{
+		
+		ActionForward forward=null;
+		
+		return forward;
+	}
 }

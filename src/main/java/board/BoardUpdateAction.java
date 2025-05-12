@@ -3,8 +3,6 @@ package board;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mysql.cj.Session;
-
 import controller.Action;
 import controller.ActionForward;
 

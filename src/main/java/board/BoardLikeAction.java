@@ -33,6 +33,13 @@ public class BoardLikeAction implements Action {
 		// 좋아요 처리
 		boardDAO dao = new boardDAO();
 		int result = dao.boardLikeCount(boardIdx);
+		
+		// 상세 페이지 리다이렉트
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(true);
+		forward.setPath("detail.bo?boardIdx=" + boardIdx);
+		
+		return forward;
 	}
 
 }

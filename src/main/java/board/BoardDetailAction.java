@@ -1,10 +1,7 @@
 package board;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.omg.CORBA.Request;
 
 import controller.Action;
 import controller.ActionForward;
@@ -31,7 +28,6 @@ public class BoardDetailAction implements Action {
 		
 		forward.setRedirect(false);
 		forward.setPath("boardDetail.jsp");
-
 		
 		return forward;
 	}

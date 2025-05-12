@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="board.BoardVO" %>
+<%@ page import="board.boardVO" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -306,7 +306,7 @@
 
 <body>
 <%
-    BoardVO boardVO = (BoardVO) request.getAttribute("boardVO");
+    boardVO boardVO = (boardVO) request.getAttribute("boardVO");
 %>
     <div class="content">
         <span class="mainTitle">여행 이야기 상세</span>

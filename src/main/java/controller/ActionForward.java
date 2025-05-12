@@ -1,5 +1,6 @@
 package controller;
 
+
 public class ActionForward {
 
 	private boolean isRedirect = false;
@@ -18,3 +19,4 @@ public class ActionForward {
 		this.path = path;
 	}		
 }
+

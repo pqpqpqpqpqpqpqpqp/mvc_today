@@ -23,10 +23,10 @@ public class BoardListAction implements Action{
 		String category = request.getParameter("category");
 
 		// 검색 조건
+		// 키워드, 카테고리 전부 있을 때
 		if (keyword != null && !keyword.trim().isEmpty() &&
 		   category != null && !category.trim().isEmpty()) {
 			
-			// 키워드, 카테고리 전부 있을 때
 			list = dao.searchByKeywordAndCategory(keyword, category);
 		}
 		// 키워드만 있을 때

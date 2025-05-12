@@ -24,9 +24,6 @@ public class BoardUpdateAction implements Action{
 		forward.setRedirect(false);
 		forward.setPath("boardUpdate.jsp");
 		
-		
-		
-		
 		return forward;
 	}
 

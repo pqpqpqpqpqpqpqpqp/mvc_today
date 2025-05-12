@@ -15,7 +15,7 @@ public class BoardDetailAction implements Action {
 		ActionForward forward = new ActionForward();
 		boardDAO dao = new boardDAO();
 		
-		
+		System.out.println(req.getParameter("board_idx"));
 		String idx = req.getParameter("board_idx");
 		int boardIdx = Integer.parseInt(idx);
 		

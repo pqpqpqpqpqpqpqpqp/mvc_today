@@ -23,10 +23,10 @@ public class BoardLikeAction implements Action {
 		if(userid == null) {
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("/member/login.jsp");
+			forward.setPath("login.me");
 			return forward;
 		}
-		
+		System.out.println(req.getParameter("board_idx"));
 		// 좋아요 누르는 게시글 번호 가져오기
 		int boardIdx = Integer.parseInt(req.getParameter("board_idx"));
 		

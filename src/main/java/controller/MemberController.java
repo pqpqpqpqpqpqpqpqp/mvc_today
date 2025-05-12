@@ -28,18 +28,15 @@ public class MemberController extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println(request.getRequestURI());
 		String url = request.getRequestURI();
-		String path = request.getContextPath();
-		String command = url.substring(path.length());
-		System.out.println("command: " + command);
+		System.out.println(url.endsWith("login.me"));
 
 		Action action = null;
 		ActionForward forward = null;
 
 
-		if (command.equals("/member/login.me")) {
-			action = new MemberLoginAction();
-			
-		} else if (command.equals("/member/register.me")) {
+		if (url.endsWith("login.me")) {
+			action = new MemberLoginAction();	
+		} else if (url.endsWith("register.me")) {
 			action = new MemberRegisterAction();
 		}
 

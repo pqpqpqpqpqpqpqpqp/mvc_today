@@ -31,30 +31,30 @@ public class BoardController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		
-		String command = req.getRequestURI().substring(req.getContextPath().length());
-		System.out.println(command);
+		String url = req.getRequestURI();
 		
 		Action action = null;
 		ActionForward forward = null;
 		
-		if (command.equals("/board/list.bo")) {
-			action = new BoardListAction();	
-		} else if (command.equals("/member/write.bo") || command.equals("/board/write.bo")) {
-			forward = new ActionForward();
-			forward.setPath("/250512_Today/board/boardWrite.jsp");
-			forward.setRedirect(true);
-		} else if (command.equals("/board/writeAction.bo")) {
-			action = new BoardWriteAction();
-		} else if (command.equals("/board/detail.bo")) {
-			action = new BoardDetailAction();
-		} else if (command.equals("/board/update.bo")) {
-			action = new BoardUpdateAction();
-		} else if (command.equals("/board/updateAction.bo")) {
-			action = new BoardUpdateResultAction();
-		} else if (command.equals("/board/deleteAction.bo")) {
-			action = new BoardDeleteAction();
-		} else if (command.equals("/board/like.bo")) {
-			action = new BoardLikeAction();
+
+		if (url.endsWith("list.bo")) {
+		    action = new BoardListAction();
+		} else if (url.endsWith("write.bo")) {
+		    forward = new ActionForward();
+		    forward.setPath("/250512_Today/board/boardWrite.jsp");
+		    forward.setRedirect(true);
+		} else if (url.endsWith("writeAction.bo")) {
+		    action = new BoardWriteAction();
+		} else if (url.endsWith("detail.bo")) {
+		    action = new BoardDetailAction();
+		} else if (url.endsWith("update.bo")) {
+		    action = new BoardUpdateAction();
+		} else if (url.endsWith("updateAction.bo")) {
+		    action = new BoardUpdateResultAction();
+		} else if (url.endsWith("deleteAction.bo")) {
+		    action = new BoardDeleteAction();
+		} else if (url.endsWith("like.bo")) {
+		    action = new BoardLikeAction();
 		}
 		
 		try {

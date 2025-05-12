@@ -30,9 +30,14 @@ public class BoardWriteAction implements Action{
 		
 		dao.boardInsert(boardVO);
 		
+<<<<<<< HEAD
 		forward.setPath("/board/list.bo");
 		forward.setRedirect(false);
 		
+=======
+		forward.setPath("list.bo");
+		forward.setRedirect(true);
+>>>>>>> ee16568 (마개조)
 		return forward;
 	}
 

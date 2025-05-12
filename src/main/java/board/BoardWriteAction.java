@@ -1,5 +1,6 @@
 package board;
 
+import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,7 +16,7 @@ public class BoardWriteAction implements Action{
 		boardDAO dao = new boardDAO();
 		ActionForward forward = new ActionForward();
 		boardVO boardVO = new boardVO();
-		MemberVO memberVO = new MemberVO();
+		
 		
 		boardVO.setBoardTitle(req.getParameter("boardTitle"));
 		boardVO.setBoardContent(req.getParameter("boardContent"));
@@ -26,19 +27,16 @@ public class BoardWriteAction implements Action{
 		
 		HttpSession session = req.getSession();
 		
-		String user = null;
-		if(session.getAttribute("userId") == null) {
-			user = memberVO.getUser_id();
-		} else {
-			user = (String) session.getAttribute("userId"); 
-		}
-		boardVO.setInstUser(user);
-		boardVO.setUpdtUser(user);
+		
+		boardVO.setInstUser((String) session.getAttribute("user_nickname"));
+		boardVO.setUpdtUser((String) session.getAttribute("user_nickname"));
+		System.out.println("경로: "+req.getRequestURL().toString());
+		
 		
 		dao.boardInsert(boardVO);
 		
 		
-		forward.setPath("/board/list.bo");
+		forward.setPath("list.bo");
 		forward.setRedirect(true);
 		return forward;
 	}

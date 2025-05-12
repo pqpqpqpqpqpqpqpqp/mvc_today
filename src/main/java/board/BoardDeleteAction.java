@@ -15,7 +15,7 @@ public class BoardDeleteAction implements Action{
         resp.setCharacterEncoding("UTF-8");
         
         HttpSession session = req.getSession();
-        String userId = (String) session.getAttribute("userId");
+        String userId = (String) session.getAttribute("user_id");
         
         //로그인 안하는 경우
         if(userId ==null) {
@@ -37,7 +37,7 @@ public class BoardDeleteAction implements Action{
         
         //게시글 삭제되면 넘어갈 장소
         ActionForward forward = new ActionForward();
-        forward.setPath("/board/list.bo");
+        forward.setPath("list.bo");
         forward.setRedirect(true);
         
 		return forward;

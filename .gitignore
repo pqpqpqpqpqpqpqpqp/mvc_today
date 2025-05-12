@@ -3,8 +3,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,java
 
 # workspace1
-src/main/webapp/META-INF/
-src/main/webapp/META-INF/context.xml
+.src/main/webapp/META-INF/
+.src/main/webapp/META-INF/context.xml
 
 ### Eclipse ###
 .metadata

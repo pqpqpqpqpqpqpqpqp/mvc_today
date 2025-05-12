@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import controller.Action;
 import controller.ActionForward;
-import member.MemberVO;
 
 public class BoardWriteAction implements Action{
 
@@ -15,7 +14,6 @@ public class BoardWriteAction implements Action{
 		boardDAO dao = new boardDAO();
 		ActionForward forward = new ActionForward();
 		boardVO boardVO = new boardVO();
-		MemberVO memberVO = new MemberVO();
 		
 		boardVO.setBoardTitle(req.getParameter("boardTitle"));
 		boardVO.setBoardContent(req.getParameter("boardContent"));
@@ -26,20 +24,13 @@ public class BoardWriteAction implements Action{
 		
 		HttpSession session = req.getSession();
 		
-		String user = null;
-		if(session.getAttribute("userId") == null) {
-			user = memberVO.getUser_id();
-		} else {
-			user = (String) session.getAttribute("userId"); 
-		}
-		boardVO.setInstUser(user);
-		boardVO.setUpdtUser(user);
+		boardVO.setInstUser( (String) session.getAttribute("user_id") );
+		boardVO.setUpdtUser( (String) session.getAttribute("user_id") );
 		
 		dao.boardInsert(boardVO);
 		
-		
 		forward.setPath("/board/list.bo");
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		return forward;
 	}
 

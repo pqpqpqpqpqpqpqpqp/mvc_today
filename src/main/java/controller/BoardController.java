@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,9 +39,9 @@ public class BoardController extends HttpServlet {
 		
 		if (command.equals("/member/list.bo") || command.equals("/board/list.bo")) {
 			action = new BoardListAction();	
-		} else if (command.equals("/board/write.bo")) {
+		} else if (command.equals("/member/write.bo") || command.equals("/board/write.bo")) {
 			forward = new ActionForward();
-			forward.setPath("boardWrite.jsp");
+			forward.setPath("/250512_Today/board/boardWrite.jsp");
 			forward.setRedirect(true);
 		} else if (command.equals("/board/writeAction.bo")) {
 			action = new BoardWriteAction();

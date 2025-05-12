@@ -54,11 +54,10 @@ public class MemberController extends HttpServlet {
 
 
 		if (command.equals("/login.bo")) {
-			forward = new MemberLoginAction();
-			forward.setPath("member/login.jsp");
+			action = new MemberLoginAction();
+			
 		} else if (command.equals("/register.bo")) {
-			forward = new MemberRegisterAction();
-			forward.setPath("member/register.jsp");
+			action = new MemberRegisterAction();
 		}
 
 		try {

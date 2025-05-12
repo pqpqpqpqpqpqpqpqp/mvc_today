@@ -34,6 +34,7 @@ public class BoardController extends HttpServlet {
 		
 		if (command.equals("/list.bo")) {
 			action = new BoardListAction();
+			
 		} else if (command.equals("/write.bo")) {
 			forward = new ActionForward();
 			forward.setPath("boardWrite.jsp");

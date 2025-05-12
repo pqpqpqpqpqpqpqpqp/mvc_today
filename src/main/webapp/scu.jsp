@@ -8,5 +8,9 @@
 </head>
 <body>
 
+<%
+
+response.sendRedirect("board/list.bo");
+%>
 </body>
 </html>

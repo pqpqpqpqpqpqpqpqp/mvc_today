@@ -15,7 +15,7 @@ public class BoardLikeAction implements Action {
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		
-		// 로그인 아이디 확인, 데이터 수집 용
+		// 로그인 아이디 확인, 데이터 수집용
 		HttpSession session = req.getSession();
 		String userid = (String) session.getAttribute("userid");
 		

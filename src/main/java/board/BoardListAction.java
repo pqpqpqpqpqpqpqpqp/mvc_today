@@ -37,7 +37,7 @@ public class BoardListAction implements Action{
 		else if (category != null && !category.trim().isEmpty()) {
 			list = dao.searchByCategory(category);
 		}
-		// 검색 조건이 업을 때
+		// 검색 조건이 없을 때
 		else {
 			list = dao.boardList();
 		}

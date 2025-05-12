@@ -28,7 +28,7 @@ public class BoardUpdateResultAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("list.bo");
+		forward.setPath("/board/list.bo");
 		
 		
 		return forward;

@@ -27,7 +27,7 @@ public class BoardDetailAction implements Action {
 		req.setAttribute("boardVO", vo);
 		
 		forward.setRedirect(false);
-		forward.setPath("boardDetail.jsp");
+		forward.setPath("/board/boardDetail.jsp");
 		
 		return forward;
 	}

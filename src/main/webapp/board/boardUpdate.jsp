@@ -341,7 +341,7 @@
     <div class="content">
         <span class="mainTitle">여행 이야기 수정</span>
 
-        <form action="updateAction.co" method="post">
+        <form action="updateAction.bo" method="post">
             <input type="hidden" name="board_idx" value="<%=boardVO.getBoardIdx()%>">
             
             <div class="title">

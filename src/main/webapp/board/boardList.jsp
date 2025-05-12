@@ -512,7 +512,7 @@
         <span class="mainTitle">여행 이야기 목록</span>
 
         <div class="searchArea">
-            <form action="list.co" method="get" class="searchForm">
+            <form action="list.bo" method="get" class="searchForm">
                 <select name="category" class="categorySelect">
                     <option value="">전체 카테고리</option>
                     <option value="국내여행" <%=request.getParameter("category") != null && request.getParameter("category").equals("국내여행") ? "selected" : ""%>>국내여행</option>
@@ -536,7 +536,7 @@
             </form>
         </div>
 
-        <a href="write.co" class="writeBtn">
+        <a href="write.bo" class="writeBtn">
             <svg class="writeIcon" viewBox="0 0 24 24">
                 <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
             </svg>
@@ -592,7 +592,7 @@
                         </svg>
                         <%=vo.getBoardCategory()%>
                     </div>
-                    <a href="detail.co?board_idx=<%=vo.getBoardIdx()%>" class="cardTitle">
+                    <a href="/250512_Today/board/detail.bo?board_idx=<%=vo.getBoardIdx()%>" class="cardTitle">
                         <%=vo.getBoardTitle()%>
                     </a>
                 </div>

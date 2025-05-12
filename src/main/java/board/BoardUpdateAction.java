@@ -22,7 +22,7 @@ public class BoardUpdateAction implements Action{
 		req.setAttribute("boardVO", boardVO);
 		
 		forward.setRedirect(false);
-		forward.setPath("list.bo");
+		forward.setPath("/board/list.bo");
 		
 		
 		

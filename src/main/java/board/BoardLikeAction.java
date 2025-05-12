@@ -23,7 +23,7 @@ public class BoardLikeAction implements Action {
 		if(userid == null) {
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("login.bo");
+			forward.setPath("/member/login.jsp");
 			return forward;
 		}
 		
@@ -37,7 +37,7 @@ public class BoardLikeAction implements Action {
 		// 상세 페이지 리다이렉트
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("detail.bo?boardIdx=" + boardIdx);
+		forward.setPath("/board/detail.bo?boardIdx=" + boardIdx);
 		
 		return forward;
 	}

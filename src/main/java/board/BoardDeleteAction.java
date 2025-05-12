@@ -37,7 +37,7 @@ public class BoardDeleteAction implements Action{
         
         //게시글 삭제되면 넘어갈 장소
         ActionForward forward = new ActionForward();
-        forward.setPath("list.bo");
+        forward.setPath("/board/list.bo");
         forward.setRedirect(true);
         
 		return forward;

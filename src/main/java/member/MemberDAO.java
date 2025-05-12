@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javax.sql.DataSource;
+
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
@@ -56,6 +58,43 @@ public class MemberDAO {
 		}
 		
 		return 0;
+	}
+	
+	public MemberVO login(String input_user_id) {
+		MemberVO memberVO = new MemberVO();
+		memberVO.setUser_id(" ");
+		memberVO.setUser_pw(" ");
+		memberVO.setUser_nickname(" ");
+		
+		try {
+
+			String sql = "SELECT USER_PW, USER_NICKNAME FROM USER_MVC WHERE USER_ID = ?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, input_user_id);
+			// SELECT 할 경우, ResultSet 필요
+			rs = pstmt.executeQuery();
+
+			// 결과값은 1개만 있으므로, if만 있어도 가능
+			if (rs.next()) {
+				
+				String user_pw = rs.getString("USER_PW");
+				String user_nickname = rs.getString("USER_NICKNAME");
+				
+				memberVO.setUser_id(input_user_id);
+				memberVO.setUser_pw(user_pw);
+				memberVO.setUser_nickname(user_nickname);
+				
+				return memberVO;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			conClose();
+		}
+		return memberVO;
+		
 	}
 
 }

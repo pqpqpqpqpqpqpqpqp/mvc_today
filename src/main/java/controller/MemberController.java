@@ -53,10 +53,10 @@ public class MemberController extends HttpServlet {
 		ActionForward forward = null;
 
 
-		if (command.equals("/login.bo")) {
+		if (command.equals("/member/login.me")) {
 			action = new MemberLoginAction();
 			
-		} else if (command.equals("/register.bo")) {
+		} else if (command.equals("/member/register.me")) {
 			action = new MemberRegisterAction();
 		}
 

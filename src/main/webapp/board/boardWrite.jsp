@@ -382,7 +382,7 @@
 
     <script>
         function boardList() {
-            location.href="./list.co";    
+            location.href="./list.bo";    
         }
 
         // 예산 선택 시 금액 표시

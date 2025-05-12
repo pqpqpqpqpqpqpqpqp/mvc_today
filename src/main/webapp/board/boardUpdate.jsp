@@ -367,6 +367,7 @@
                     <span class="subTitle">여행기간: </span>
                     <input type="text" name="travel_period" value="<%=boardVO.getTravelPeriod()%>">
                 </div>
+                <h1><%=boardVO.getTravelBudget() %></h1>
                 <div class="info_item">
                     <span class="subTitle">예산: </span>
                     <div class="budget_input">

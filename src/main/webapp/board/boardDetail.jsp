@@ -393,7 +393,7 @@
         <div class="bottom_area">
             <input type="button" class="listBtn btn" value="목록으로" onclick="boardList()">
             <%
-                String userId = (String) session.getAttribute("userId");
+                String userId = (String) session.getAttribute("user_id");
                 if (userId != null && userId.equals(boardVO.getInstUser())) {
             %>
                 <input type="button" class="updateBtn btn" value="수정하기" onclick="boardUpdate()">

@@ -37,7 +37,7 @@ public class BoardController extends HttpServlet {
 		Action action = null;
 		ActionForward forward = null;
 		
-		if (command.equals("/member/list.bo") || command.equals("/board/list.bo")) {
+		if (command.equals("/board/list.bo")) {
 			action = new BoardListAction();	
 		} else if (command.equals("/member/write.bo") || command.equals("/board/write.bo")) {
 			forward = new ActionForward();

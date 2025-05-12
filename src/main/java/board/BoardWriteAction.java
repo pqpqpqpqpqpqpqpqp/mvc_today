@@ -1,5 +1,6 @@
 package board;
 
+import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -31,6 +32,7 @@ public class BoardWriteAction implements Action{
 		
 		forward.setPath("/board/list.bo");
 		forward.setRedirect(false);
+		
 		return forward;
 	}
 

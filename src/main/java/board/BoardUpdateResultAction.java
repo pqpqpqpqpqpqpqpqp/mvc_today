@@ -19,8 +19,8 @@ public class BoardUpdateResultAction implements Action {
 		boardVO.setBoardTitle(req.getParameter("board_title"));
 		boardVO.setBoardContent(req.getParameter("board_content"));
 		boardVO.setTravelLocation(req.getParameter("travel_location"));
-		boardVO.setTravelBudget(Integer.parseInt(req.getParameter("travel_budget")));
-		boardVO.setTravelPeriod(req.getParameter("travel_budget"));
+		boardVO.setTravelBudget(Integer.parseInt(req.getParameter("trave_budget")));
+		boardVO.setTravelPeriod(req.getParameter("travel_period"));
 		boardVO.setBoardCategory(req.getParameter("board_category"));
 		
 		boardDAO dao = new boardDAO();
@@ -28,7 +28,8 @@ public class BoardUpdateResultAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("/board/list.bo");
+		forward.setPath("list.bo");
+		
 		
 		
 		return forward;

@@ -17,12 +17,12 @@ public class BoardUpdateAction implements Action{
 		String idx = req.getParameter("board_idx");
 		 
 		int boardIdx = Integer.parseInt(idx);
-		boardVO boardVO = new boardVO();
+		boardVO boardVO = dao.boardDetail(boardIdx);
 		
 		req.setAttribute("boardVO", boardVO);
 		
 		forward.setRedirect(false);
-		forward.setPath("/board/list.bo");
+		forward.setPath("boardUpdate.jsp");
 		
 		
 		

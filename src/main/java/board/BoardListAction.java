@@ -42,6 +42,11 @@ public class BoardListAction implements Action{
 			list = dao.boardList();
 		}
 		
+		request.setAttribute("list", list);
+		
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(false);
+		forward.setPath("/boardList.jsp");
 		return null;
 	}
 

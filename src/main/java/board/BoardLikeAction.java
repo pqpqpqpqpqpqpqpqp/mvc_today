@@ -19,6 +19,7 @@ public class BoardLikeAction implements Action {
 		HttpSession session = req.getSession();
 		String userid = (String) session.getAttribute("userid");
 		
+		// 로그인되어 있지 않으면 로그인 페이지로 이동하게끔
 		if(userid == null) {
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(true);
@@ -26,6 +27,12 @@ public class BoardLikeAction implements Action {
 			return forward;
 		}
 		
+		// 좋아요 누르는 게시글 번호 가져오기
+		int boardIdx = Integer.parseInt(req.getParameter("boardIdx"));
+		
+		// 좋아요 처리
+		boardDAO dao = new boardDAO();
+		int result = dao.boardLikeCount(boardIdx);
 	}
 
 }

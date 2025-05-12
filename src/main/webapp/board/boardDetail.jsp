@@ -404,7 +404,7 @@
 
     <script>
         function boardList() {
-            location.href="./list.co";    
+            location.href="./list.bo";    
         }
         
         function boardUpdate() {

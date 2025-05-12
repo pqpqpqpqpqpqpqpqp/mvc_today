@@ -19,6 +19,7 @@ public class BoardListAction implements Action{
 		boardDAO dao = new boardDAO();
 		List<boardVO> list = null;
 		
+		123
 		return null;
 	}
 

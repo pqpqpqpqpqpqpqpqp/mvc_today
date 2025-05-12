@@ -31,6 +31,7 @@ public class BoardUpdateResultAction implements Action {
 		forward.setPath("list.bo");
 		
 		
+		
 		return forward;
 	}
 

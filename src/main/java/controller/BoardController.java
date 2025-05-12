@@ -28,6 +28,7 @@ public class BoardController extends HttpServlet {
 		
 		String command = req.getRequestURI().substring(req.getContextPath().length());
 		
+		System.out.println("123");
 		Action action = null;
 		ActionForward forward = null;
 		
@@ -53,5 +54,6 @@ public class BoardController extends HttpServlet {
 			RequestDispatcher dispatcher = req.getRequestDispatcher(forward.getPath());
 			dispatcher.forward(req, resp);
 		}
+		
 	}
 }

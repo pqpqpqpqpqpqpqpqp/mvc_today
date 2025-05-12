@@ -27,12 +27,13 @@ public class BoardController extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		
 		String command = req.getRequestURI().substring(req.getContextPath().length());
+		System.out.println(command);
 		
 		System.out.println("123");
 		Action action = null;
 		ActionForward forward = null;
 		
-		if (command.equals("/list.bo")) {
+		if (command.equals("/member/list.bo") || command.equals("/board/list.bo")) {
 			action = new BoardListAction();
 			
 		} else if (command.equals("/write.bo")) {

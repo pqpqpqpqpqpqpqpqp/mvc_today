@@ -61,7 +61,11 @@ public class MemberDAO {
 	}
 	
 	public MemberVO login(String input_user_id) {
-		MemberVO memberVO = null;
+		MemberVO memberVO = new MemberVO();
+		memberVO.setUser_id(" ");
+		memberVO.setUser_pw(" ");
+		memberVO.setUser_nickname(" ");
+		
 		try {
 
 			String sql = "SELECT USER_PW, USER_NICKNAME FROM USER_MVC WHERE USER_ID = ?";
@@ -73,7 +77,7 @@ public class MemberDAO {
 
 			// 결과값은 1개만 있으므로, if만 있어도 가능
 			if (rs.next()) {
-				memberVO = new MemberVO();
+				
 				String user_pw = rs.getString("USER_PW");
 				String user_nickname = rs.getString("USER_NICKNAME");
 				
@@ -83,15 +87,14 @@ public class MemberDAO {
 				
 				return memberVO;
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		} finally {
 			conClose();
 		}
-
-		return null;
+		return memberVO;
+		
 	}
 
 }

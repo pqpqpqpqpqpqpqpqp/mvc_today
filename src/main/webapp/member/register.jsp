@@ -104,7 +104,7 @@
 <body>
     <div class="container">
         <h1>회원가입</h1>
-        <form action="register.bo" method="post">
+        <form action="register.me" method="post">
             <div class="form-group">
                 <label for="userId">아이디</label>
                 <input type="text" id="userId" name="userId" required>

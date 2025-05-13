@@ -18,8 +18,8 @@ public class MemberRegisterAction implements Action {
 		dao.regiset(memberVO);
 
 		ActionForward forward = new ActionForward();
-		forward.setPath("login.jsp");
-		forward.setRedirect(true);
+		forward.setPath("/member/login.jsp");
+		forward.setRedirect(false);
 
 		return forward;
 

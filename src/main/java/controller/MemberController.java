@@ -36,7 +36,8 @@ public class MemberController extends HttpServlet {
 			action = new MemberLoginAction();
 		} else if (url.endsWith("register.me")) {
 			action = new MemberRegisterAction();
-		}
+		} 
+	
 
 		try {
 			if (action != null) {

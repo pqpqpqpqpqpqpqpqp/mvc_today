@@ -15,6 +15,10 @@ import board.BoardListAction;
 import board.BoardUpdateAction;
 import board.BoardUpdateResultAction;
 import board.BoardWriteAction;
+import member.MemberRegisterAction;
+import page.PageBoardListAction;
+import page.PageBoardWriteAction;
+import page.PageMainAction;
 
 public class BoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -43,8 +47,9 @@ public class BoardController extends HttpServlet {
 			action = new BoardListAction();
 		} else if (url.endsWith("write.bo")) {
 			forward = new ActionForward();
-			forward.setPath("boardWrite.jsp");
-			forward.setRedirect(true);
+			forward.setRedirect(false);
+			forward.setPath("/board/templete.jsp");
+			req.setAttribute("movePage", "boardWrite");
 		} else if (url.endsWith("writeAction.bo")) {
 			action = new BoardWriteAction();
 		} else if (url.endsWith("detail.bo")) {
@@ -57,7 +62,13 @@ public class BoardController extends HttpServlet {
 			action = new BoardDeleteAction();
 		} else if (url.endsWith("like.bo")) {
 			action = new BoardLikeAction();
+		} else if (url.endsWith("pageMain.bo")) {
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/board/templete.jsp");
+			req.setAttribute("movePage", "main");
 		}
+
 
 		try {
 			if (action != null) {
@@ -67,6 +78,7 @@ public class BoardController extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		System.out.println(forward.getPath());
 		if (forward.isRedirect()) {
 			resp.sendRedirect(forward.getPath());
 		} else {

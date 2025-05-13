@@ -44,7 +44,9 @@ public class BoardListAction implements Action {
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/board/boardList.jsp");
+		forward.setPath("/board/templete.jsp");
+		request.setAttribute("movePage", "boardList");
+		
 
 		return forward;
 	}

@@ -22,12 +22,12 @@ public class MemberLoginAction implements Action {
 			session.setAttribute("user_id", memberVO.getUser_id());
 			session.setAttribute("user_nickname", memberVO.getUser_nickname());
 
-			forward.setPath(req.getContextPath()+"/board/list.bo");
+			forward.setPath(req.getContextPath()+"/list.bo");
 			forward.setRedirect(true);
 
 		} else {
-			forward.setPath("login.jsp");
-			forward.setRedirect(true);
+			forward.setPath("/member/login.jsp");
+			forward.setRedirect(false);
 		}
 
 		return forward;

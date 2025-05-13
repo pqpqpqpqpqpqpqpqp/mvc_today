@@ -43,7 +43,7 @@ public class BoardController extends HttpServlet {
 			action = new BoardListAction();
 		} else if (url.endsWith("write.bo")) {
 			forward = new ActionForward();
-			forward.setPath("/250512_Today/board/boardWrite.jsp");
+			forward.setPath("boardWrite.jsp");
 			forward.setRedirect(true);
 		} else if (url.endsWith("writeAction.bo")) {
 			action = new BoardWriteAction();

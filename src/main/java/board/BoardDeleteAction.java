@@ -32,7 +32,6 @@ public class BoardDeleteAction implements Action {
 			return null;
 		}
 		// 게시글 삭제 (DEL_YN을 'Y'로 업데이트)
-		System.out.println("board_idx: " + boardIdx);
 		dao.boardDelete(boardIdx);
 
 		// 게시글 삭제되면 넘어갈 장소

@@ -14,31 +14,31 @@ public class BoardLikeAction implements Action {
 		// TODO Auto-generated method stub
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
-		
+
 		// 로그인 아이디 확인, 데이터 수집용
 		HttpSession session = req.getSession();
 		String userid = (String) session.getAttribute("user_id");
-		
+
 		// 로그인되어 있지 않으면 로그인 페이지로 이동하게끔
-		if(userid == null) {
+		if (userid == null) {
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("login.me");
 			return forward;
 		}
-		System.out.println(req.getParameter("board_idx"));
+		
 		// 좋아요 누르는 게시글 번호 가져오기
 		int boardIdx = Integer.parseInt(req.getParameter("board_idx"));
-		
+
 		// 좋아요 처리
 		boardDAO dao = new boardDAO();
 		int result = dao.boardLikeCount(boardIdx);
-		
+
 		// 상세 페이지 리다이렉트
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("detail.bo?board_idx=" + boardIdx);
-		
+
 		return forward;
 	}
 

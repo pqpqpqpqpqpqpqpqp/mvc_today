@@ -8,25 +8,23 @@ import javax.servlet.http.HttpServletResponse;
 import controller.Action;
 import controller.ActionForward;
 
-
-public class BoardListAction implements Action{
+public class BoardListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
+
 		boardDAO dao = new boardDAO();
 		List<boardVO> list = null;
-		
+
 		String keyword = request.getParameter("keyword");
 		String category = request.getParameter("category");
 
 		// 검색 조건
 		// 키워드, 카테고리 전부 있을 때
-		if (keyword != null && !keyword.trim().isEmpty() &&
-		   category != null && !category.trim().isEmpty()) {
-			
+		if (keyword != null && !keyword.trim().isEmpty() && category != null && !category.trim().isEmpty()) {
+
 			list = dao.searchByKeywordAndCategory(keyword, category);
 		}
 		// 키워드만 있을 때
@@ -41,14 +39,13 @@ public class BoardListAction implements Action{
 		else {
 			list = dao.boardList();
 		}
-		
+
 		request.setAttribute("list", list);
-		
+
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("/board/boardList.jsp");
-		
-		
+
 		return forward;
 	}
 

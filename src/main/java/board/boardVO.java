@@ -17,7 +17,8 @@ public class boardVO {
 	private String updtDate;
 	private String delYn;
 
-	public boardVO() {}
+	public boardVO() {
+	}
 
 	public int getBoardIdx() {
 		return boardIdx;

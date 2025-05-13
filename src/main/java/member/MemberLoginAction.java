@@ -22,7 +22,7 @@ public class MemberLoginAction implements Action {
 			session.setAttribute("user_id", memberVO.getUser_id());
 			session.setAttribute("user_nickname", memberVO.getUser_nickname());
 
-			forward.setPath("../scu.jsp");
+			forward.setPath(req.getContextPath()+"/board/list.bo");
 			forward.setRedirect(true);
 
 		} else {
